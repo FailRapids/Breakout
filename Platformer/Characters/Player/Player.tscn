@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Platformer/Characters/Character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Platformer/Characters/Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Platformer/Characters/Player/States/Idle.gd" type="Script" id=3]
+[ext_resource path="res://Platformer/Characters/Player/States/Move.gd" type="Script" id=4]
+[ext_resource path="res://Platformer/Characters/Player/States/Sprint.gd" type="Script" id=5]
+[ext_resource path="res://Platformer/Characters/Player/States/Jump.gd" type="Script" id=6]
+
+[node name="Player" instance=ExtResource( 1 )]
+collision_layer = 524288
+collision_mask = 524289
+script = ExtResource( 2 )
+_sections_unfolded = [ "Collision", "collision", "motion" ]
+use_analog = false
+analog_deadzone_size = Vector2( 0.1, 0.1 )
+
+[node name="Collision" parent="." index="2"]
+position = Vector2( 0, -12 )
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
+
+[node name="Body" parent="BodyPivot" index="0"]
+scale = Vector2( 6, 6 )
+_sections_unfolded = [ "Transform", "polygon" ]
+
+[node name="Idle" parent="States" index="0"]
+script = ExtResource( 3 )
+
+[node name="Move" parent="States" index="1"]
+script = ExtResource( 4 )
+Acceleration = 60
+Max_Speed = 180
+
+[node name="Sprint" parent="States" index="2"]
+script = ExtResource( 5 )
+Acceleration = 100
+Max_Speed = 265
+
+[node name="Jump" parent="States" index="3"]
+script = ExtResource( 6 )
+Max_Height = 35
+
+[node name="Rays" parent="." index="5"]
+editor/display_folded = true
+visible = false
+
