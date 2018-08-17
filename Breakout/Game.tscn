@@ -1,0 +1,164 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Breakout/Game.gd" type="Script" id=1]
+[ext_resource path="res://Breakout/Balls/Ball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Breakout/Paddles/Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Breakout/Blocks/Block.tscn" type="PackedScene" id=4]
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -10.0, 542.0 ],
+"_edit_vertical_guides_": [ -8.0, 0.0 ]
+}
+
+[node name="Ball" parent="." groups=[
+"Ball",
+] instance=ExtResource( 2 )]
+position = Vector2( 400, 212 )
+mass = 1.02041e-05
+max_speed = 300
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 406, 520 )
+_sections_unfolded = [ "Motion", "Transform", "Visibility" ]
+
+[node name="Border" type="StaticBody2D" parent="."]
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+physics_material_override = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Border"]
+build_mode = 0
+polygon = PoolVector2Array( 0, 0, -10, -10, 810, -10, 800, 0 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Border"]
+position = Vector2( 800, 600 )
+rotation = 3.14159
+build_mode = 0
+polygon = PoolVector2Array( 0, 0, -10, -10, 810, -10, 800, 0 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Border"]
+position = Vector2( 0, 800 )
+rotation = -1.57079
+build_mode = 0
+polygon = PoolVector2Array( 200, -0.000444253, 190, -10.0004, 810, -10, 800, 0 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Border"]
+position = Vector2( 800, -200 )
+rotation = 1.57079
+build_mode = 0
+polygon = PoolVector2Array( 200, -0.000444253, 190, -10.0004, 810, -10, 800, 0 )
+
+[node name="Death" type="Area2D" parent="Border"]
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Border/Death"]
+build_mode = 0
+polygon = PoolVector2Array( 0, 542, 0, 600, 800, 600, 800, 542 )
+
+[node name="Blocks" type="Node2D" parent="."]
+
+[node name="Block" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 398, 54 )
+
+[node name="Block5" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 398, 74 )
+
+[node name="Block8" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 398, 94 )
+
+[node name="Block11" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 398, 114 )
+
+[node name="Block14" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 590, 54 )
+
+[node name="Block16" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 590, 74 )
+
+[node name="Block21" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 590, 94 )
+
+[node name="Block23" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 206, 54 )
+
+[node name="Block25" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 206, 74 )
+
+[node name="Block30" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 206, 94 )
+
+[node name="Block2" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 462, 54 )
+
+[node name="Block6" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 462, 74 )
+
+[node name="Block7" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 462, 94 )
+
+[node name="Block10" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 462, 114 )
+
+[node name="Block15" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 654, 54 )
+
+[node name="Block18" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 654, 74 )
+
+[node name="Block20" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 654, 94 )
+
+[node name="Block22" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 270, 54 )
+
+[node name="Block27" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 270, 74 )
+
+[node name="Block28" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 270, 94 )
+
+[node name="Block3" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 334, 54 )
+
+[node name="Block4" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 334, 74 )
+
+[node name="Block9" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 334, 94 )
+
+[node name="Block12" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 334, 114 )
+
+[node name="Block13" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 526, 54 )
+
+[node name="Block17" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 526, 74 )
+
+[node name="Block19" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 526, 94 )
+
+[node name="Block24" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 142, 54 )
+
+[node name="Block26" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 142, 74 )
+
+[node name="Block29" parent="Blocks" instance=ExtResource( 4 )]
+position = Vector2( 142, 94 )
+
+[connection signal="body_entered" from="Border/Death" to="." method="_on_Death_body_entered"]

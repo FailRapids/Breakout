@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Breakout/Balls/Ball.gd" type="Script" id=1]
+
+[sub_resource type="PhysicsMaterial" id=1]
+
+friction = 0.0
+rough = false
+bounce = 1.0
+absorbent = false
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 18.0
+
+[node name="Ball" type="RigidBody2D"]
+position = Vector2( 398.9, 161.792 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 0.0
+bounce = 1.0
+physics_material_override = SubResource( 1 )
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 500 )
+linear_damp = 0.0
+angular_velocity = -10.0
+angular_damp = 0.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Linear", "physics_material_override" ]
+max_speed = 400
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PoolVector2Array( 0, -18, 4.0426, -17.3948, 8.79396, -15.4943, 12.8143, -12.7166, 15.6651, -8.9886, 17.4926, -4.52964, 18, 0, 17.4195, 4.82687, 15.8113, 8.55486, 13.1067, 12.1366, 10.0366, 14.8413, 6.60103, 16.8149, 3.60402, 17.4728, 0, 18, -4.58293, 17.3997, -8.89569, 15.7915, -12.7623, 12.9293, -15.6093, 9.08207, -17.2251, 4.92704, -18, 0, -17.3463, -4.22131, -16.1314, -8.59502, -12.7699, -12.5704, -9.11499, -15.4943, -4.72912, -17.3948 )
+uv = PoolVector2Array(  )
+splits = PoolIntArray(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = PoolColorArray( 0.335938, 0.116791, 0.116791, 1, 0.0567322, 0.558594, 0.0763361, 1, 0.127029, 0.722656, 0.610976, 1 )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+skeleton = NodePath("")
+invert_enable = false
+invert_border = 100.0
+bones = [  ]
+_sections_unfolded = [ "Texture", "vertex_colors" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="_on_Ball_body_entered"]
