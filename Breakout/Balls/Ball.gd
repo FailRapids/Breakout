@@ -1,4 +1,13 @@
-extends RigidBody2D
-export(int,100,600) var max_speed = 400
-func _on_Ball_body_entered(body):
-	self.linear_velocity =(5*self.linear_velocity).clamped(max_speed)
+extends KinematicBody2D
+
+export(int) var speed = 750
+var velocity = Vector2()
+
+func _ready():
+	velocity = Vector2(0, speed)
+
+func _physics_process(delta):
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		velocity = velocity.bounce(collision.normal)
+		
