@@ -5,11 +5,23 @@
 
 [node name="Player" instance=ExtResource( 1 )]
 position = Vector2( 380, 180 )
+collision_layer = 524288
+collision_mask = 524288
 script = ExtResource( 2 )
+_sections_unfolded = [ "Collision", "Transform", "Visibility" ]
 use_analog = false
 analog_deadzone_size = Vector2( 0.1, 0.1 )
 
+[node name="CollisionPolygon2D" parent="." index="2"]
+polygon = PoolVector2Array( 10.0004, -69.9999, 20.0004, -69.9999, 19.9996, 70.0001, 9.99956, 70.0001, 4.99969, 50, -6.10352e-05, 10, 6.10352e-05, -10, 5.00032, -50 )
+
+[node name="BodyPivot" parent="." index="3"]
+editor/display_folded = false
+
+[node name="Body" parent="BodyPivot" index="0"]
+polygon = PoolVector2Array( 70, 0, 70, 20, -70, 20, -70, 0 )
+
 [node name="Move" parent="States" index="1"]
 Acceleration = 400
-Max_Speed = 400
+Max_Speed = 200
 
