@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Breakout/Blocks/Block.gd" type="Script" id=1]
 
@@ -7,6 +7,11 @@
 custom_solver_bias = 0.0
 extents = Vector2( 32, 10 )
 
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 8.0
+
 [node name="Block" type="Area2D"]
 position = Vector2( 194, 94 )
 input_pickable = true
@@ -14,26 +19,31 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+collision_layer = 0
+collision_mask = 524289
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+hp = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 524288
+collision_mask = 524288
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 physics_material_override = null
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
 build_mode = 0
-polygon = PoolVector2Array( -32, -10, 32, -10, 32, 10, -32, 10 )
+polygon = PoolVector2Array( -30, -8, 30, -8, 30, 8, -30, 8 )
 
 [node name="CollisionShape2D3" type="Polygon2D" parent="StaticBody2D"]
 polygon = PoolVector2Array( -30, -8, 30, -8, 30, 8, -30, 8 )
@@ -51,5 +61,13 @@ skeleton = NodePath("")
 invert_enable = false
 invert_border = 100.0
 bones = [  ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 24, 0 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -24, 0 )
+shape = SubResource( 2 )
 
 [connection signal="body_entered" from="." to="." method="_on_Block_body_entered"]
