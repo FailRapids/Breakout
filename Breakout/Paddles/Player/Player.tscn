@@ -20,8 +20,8 @@ editor/display_folded = false
 
 [node name="Body" parent="BodyPivot" index="0"]
 polygon = PoolVector2Array( 70, 0, 70, 20, -70, 20, -70, 0 )
+color = Color( 0.321569, 0.12549, 0.470588, 1 )
 
 [node name="Move" parent="States" index="1"]
-Acceleration = 400
-Max_Speed = 200
+Max_Speed = 500
 
