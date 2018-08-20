@@ -1,32 +1,20 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Breakout/Game.gd" type="Script" id=1]
 [ext_resource path="res://Breakout/Patterns/Block_Pattern.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Breakout/Balls/Ball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Breakout/Paddles/Player/Player.tscn" type="PackedScene" id=4]
 
-[sub_resource type="PhysicsMaterial" id=1]
+[node name="Game" type="Node2D" index="0"]
 
-friction = 1.0
-rough = false
-bounce = 0.0
-absorbent = false
-
-[sub_resource type="PhysicsMaterial" id=2]
-
-friction = 1.0
-rough = false
-bounce = 0.0
-absorbent = false
-
-[node name="Game" type="Node2D"]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 542.0, 18.0, 2.0, -2.0, 22.0, 38.0, 42.0, 58.0, 62.0, 58.0, 58.0, 78.0, 82.0, 98.0, 102.0, 118.0, 122.0, 138.0, 158.0, 142.0, 178.0, 162.0, 182.0, 198.0, 202.0, 218.0, 222.0, 238.0, 242.0, 258.0, 262.0, 278.0, 282.0, 298.0, 302.0, 318.0, 322.0, 338.0, 342.0 ],
 "_edit_vertical_guides_": [ 446.0, -2.0, 126.0, 130.0, 194.0, 254.0, 322.0, 382.0, 386.0, 318.0, 258.0, 190.0, 66.0, 62.0, 2.0, 450.0, 510.0, 514.0, 574.0, 578.0, 638.0, 642.0, 702.0, 706.0, 766.0, 770.0, 830.0, 834.0, 830.0, 830.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 416.0 ]
 }
 
-[node name="World" type="StaticBody2D" parent="."]
+[node name="World" type="StaticBody2D" parent="." index="0"]
+
 editor/display_folded = true
 input_pickable = false
 collision_layer = 524288
@@ -35,32 +23,36 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-physics_material_override = SubResource( 1 )
 _sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World" index="0"]
+
 build_mode = 0
 polygon = PoolVector2Array( 0, 0, -10, -10, 842, -10, 832, 0 )
 
-[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="World"]
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="World" index="1"]
+
 position = Vector2( 800, 600 )
 rotation = 3.14159
 build_mode = 0
 polygon = PoolVector2Array( -32, -0.00012207, -42, -10.0001, 810, -10, 800, 0 )
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="World"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="World" index="2"]
+
 position = Vector2( 0, 800 )
 rotation = -1.57079
 build_mode = 0
 polygon = PoolVector2Array( 200, -0.000444253, 190, -10.0004, 810, -10, 800, 0 )
 
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="World"]
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="World" index="3"]
+
 position = Vector2( 832, -200 )
 rotation = 1.57079
 build_mode = 0
 polygon = PoolVector2Array( 200, -0.000444253, 190, -10.0004, 810, -10, 800, 0 )
 
-[node name="Ground" type="StaticBody2D" parent="World"]
+[node name="Ground" type="StaticBody2D" parent="World" index="4"]
+
 editor/display_folded = true
 input_pickable = false
 collision_layer = 525312
@@ -69,16 +61,17 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-physics_material_override = SubResource( 2 )
 _sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Ground"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Ground" index="0"]
+
 modulate = Color( 0.0705882, 0.576471, 0.352941, 1 )
 build_mode = 0
 polygon = PoolVector2Array( 0, 542, 832, 542, 832, 564, 0, 564 )
 _sections_unfolded = [ "Material", "Visibility" ]
 
-[node name="DeathZone" type="Area2D" parent="World"]
+[node name="DeathZone" type="Area2D" parent="World" index="5"]
+
 editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -88,23 +81,29 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/DeathZone"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/DeathZone" index="0"]
+
 build_mode = 0
 polygon = PoolVector2Array( 0, 540, 0, 600, 832, 600, 832, 540 )
 
-[node name="Block_Pattern" parent="." instance=ExtResource( 2 )]
+[node name="Block_Pattern" parent="." index="1" instance=ExtResource( 2 )]
 
-[node name="Ball" parent="." groups=[
+[node name="Ball" parent="." index="2" groups=[
 "Ball",
 ] instance=ExtResource( 3 )]
+
 editor/display_folded = true
 position = Vector2( 72, 382 )
 collision_layer = 524289
 _sections_unfolded = [ "Collision", "Linear", "Motion", "Pickable", "Transform", "physics_material_override" ]
 speed = 250
+power = 1
 
-[node name="Player" parent="." instance=ExtResource( 4 )]
+[node name="Player" parent="." index="3" instance=ExtResource( 4 )]
+
 position = Vector2( 72, 522 )
 _sections_unfolded = [ "Collision", "Motion", "Pickable", "Transform", "Visibility" ]
 
 [connection signal="body_entered" from="World/DeathZone" to="." method="_on_Death_body_entered"]
+
+
