@@ -1,0 +1,802 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Breakout/Blocks/Block.tscn" type="PackedScene" id=1]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "Loop"
+length = 4.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Block:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 416, 350 ), Vector2( 476, 350 ), Vector2( 356, 350 ), Vector2( 416, 350 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Block2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 416, 330 ), Vector2( 356, 330 ), Vector2( 476, 330 ), Vector2( 416, 330 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Block3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 416, 310 ), Vector2( 476, 310 ), Vector2( 356, 310 ), Vector2( 416, 310 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Block4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 416, 290 ), Vector2( 356, 290 ), Vector2( 476, 290 ), Vector2( 416, 290 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Block5:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 416, 270 ), Vector2( 446, 270 ), Vector2( 386, 270 ), Vector2( 416, 270 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Block6:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 416, 250 ), Vector2( 386, 250 ), Vector2( 446, 250 ), Vector2( 416, 250 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Block8:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 2, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 416, 210 ), Vector2( 416, 190 ), Vector2( 416, 170 ), Vector2( 416, 180 ), Vector2( 416, 190 ), Vector2( 416, 200 ), Vector2( 416, 210 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Block8:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = false
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.5, 2, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 180.0, 360.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Block7:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 416, 230 ), Vector2( 446, 230 ), Vector2( 386, 230 ), Vector2( 416, 230 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "SETUP"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Block34:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 160, 210 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Block40:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 160, 170 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Block6:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 416, 250 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Block33:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 160, 150 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Block22:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 544, 150 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Block23:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 544, 210 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Block32:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 672, 90 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Block29:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 672, 130 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Block37:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 160, 190 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Block36:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 160, 110 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Block30:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 672, 230 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Block10:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 288, 290 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Block12:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 288, 170 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Block3:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 416, 310 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Block39:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 160, 230 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Block:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 416, 350 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Block8:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 416, 210 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Block18:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 544, 270 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Block25:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 672, 210 ) ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("Block16:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 288, 150 ) ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Block21:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 544, 230 ) ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("Block9:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 288, 190 ) ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("Block5:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 416, 270 ) ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("Block19:position")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 544, 170 ) ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("Block38:position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 160, 90 ) ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("Block15:position")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 288, 250 ) ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("Block28:position")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 672, 150 ) ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("Block26:position")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 672, 170 ) ]
+}
+tracks/28/type = "value"
+tracks/28/path = NodePath("Block4:position")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 416, 290 ) ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath("Block27:position")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 672, 190 ) ]
+}
+tracks/30/type = "value"
+tracks/30/path = NodePath("Block24:position")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 544, 250 ) ]
+}
+tracks/31/type = "value"
+tracks/31/path = NodePath("Block17:position")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 544, 190 ) ]
+}
+tracks/32/type = "value"
+tracks/32/path = NodePath("Block35:position")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 160, 130 ) ]
+}
+tracks/33/type = "value"
+tracks/33/path = NodePath("Block11:position")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 288, 230 ) ]
+}
+tracks/34/type = "value"
+tracks/34/path = NodePath("Block14:position")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 288, 210 ) ]
+}
+tracks/35/type = "value"
+tracks/35/path = NodePath("Block13:position")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 288, 270 ) ]
+}
+tracks/36/type = "value"
+tracks/36/path = NodePath("Block7:position")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 416, 230 ) ]
+}
+tracks/37/type = "value"
+tracks/37/path = NodePath("Block2:position")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 416, 330 ) ]
+}
+tracks/38/type = "value"
+tracks/38/path = NodePath("Block31:position")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 672, 110 ) ]
+}
+tracks/39/type = "value"
+tracks/39/path = NodePath("Block20:position")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 544, 290 ) ]
+}
+tracks/40/type = "value"
+tracks/40/path = NodePath("Block8:rotation_degrees")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[node name="Block_Pattern" type="Node"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 350.0, 290.0, 290.0, 230.0, 230.0, 350.0, 350.0, 350.0, 350.0, 330.0, 310.0, 270.0, 250.0, 210.0, 190.0, 170.0 ],
+"_edit_vertical_guides_": [ 416.0, 544.0, 288.0, 672.0, 160.0, 446.0, 386.0, 476.0, 356.0, 416.0, 416.0, 416.0, 416.0, 416.0, 416.0, 288.0 ]
+}
+
+[node name="Block" parent="." instance=ExtResource( 1 )]
+position = Vector2( 416, 350 )
+max_hp = 4
+hp_colors = [ Color( 0.890625, 0.0730591, 0.0730591, 1 ), Color( 0.538493, 0.632812, 0.0840454, 1 ), Color( 0.127473, 0.742188, 0.0579834, 1 ), Color( 0.0444946, 0.949219, 0.609947, 1 ), Color( 0.0745239, 0.212227, 0.578125, 1 ) ]
+
+[node name="Block10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 288, 290 )
+max_hp = 3
+
+[node name="Block20" parent="." instance=ExtResource( 1 )]
+position = Vector2( 544, 290 )
+max_hp = 3
+
+[node name="Block30" parent="." instance=ExtResource( 1 )]
+position = Vector2( 672, 230 )
+max_hp = 3
+
+[node name="Block39" parent="." instance=ExtResource( 1 )]
+position = Vector2( 160, 230 )
+max_hp = 3
+
+[node name="Block2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 416, 330 )
+max_hp = 4
+hp_colors = [ Color( 0.890625, 0.0730591, 0.0730591, 1 ), Color( 0.538493, 0.632812, 0.0840454, 1 ), Color( 0.127473, 0.742188, 0.0579834, 1 ), Color( 0.0444946, 0.949219, 0.609947, 1 ), Color( 0.0745239, 0.212227, 0.578125, 1 ) ]
+
+[node name="Block13" parent="." instance=ExtResource( 1 )]
+position = Vector2( 288, 270 )
+max_hp = 3
+
+[node name="Block18" parent="." instance=ExtResource( 1 )]
+position = Vector2( 544, 270 )
+max_hp = 3
+
+[node name="Block25" parent="." instance=ExtResource( 1 )]
+position = Vector2( 672, 210 )
+max_hp = 3
+
+[node name="Block34" parent="." instance=ExtResource( 1 )]
+position = Vector2( 160, 210 )
+max_hp = 3
+
+[node name="Block3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 416, 310 )
+max_hp = 4
+hp_colors = [ Color( 0.890625, 0.0730591, 0.0730591, 1 ), Color( 0.538493, 0.632812, 0.0840454, 1 ), Color( 0.127473, 0.742188, 0.0579834, 1 ), Color( 0.0444946, 0.949219, 0.609947, 1 ), Color( 0.0745239, 0.212227, 0.578125, 1 ) ]
+
+[node name="Block15" parent="." instance=ExtResource( 1 )]
+position = Vector2( 288, 250 )
+max_hp = 3
+
+[node name="Block24" parent="." instance=ExtResource( 1 )]
+position = Vector2( 544, 250 )
+max_hp = 3
+
+[node name="Block27" parent="." instance=ExtResource( 1 )]
+position = Vector2( 672, 190 )
+max_hp = 3
+
+[node name="Block37" parent="." instance=ExtResource( 1 )]
+position = Vector2( 160, 190 )
+max_hp = 3
+
+[node name="Block4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 416, 290 )
+max_hp = 4
+hp_colors = [ Color( 0.890625, 0.0730591, 0.0730591, 1 ), Color( 0.538493, 0.632812, 0.0840454, 1 ), Color( 0.127473, 0.742188, 0.0579834, 1 ), Color( 0.0444946, 0.949219, 0.609947, 1 ), Color( 0.0745239, 0.212227, 0.578125, 1 ) ]
+
+[node name="Block11" parent="." instance=ExtResource( 1 )]
+position = Vector2( 288, 230 )
+max_hp = 3
+
+[node name="Block21" parent="." instance=ExtResource( 1 )]
+position = Vector2( 544, 230 )
+max_hp = 3
+
+[node name="Block26" parent="." instance=ExtResource( 1 )]
+position = Vector2( 672, 170 )
+max_hp = 3
+
+[node name="Block40" parent="." instance=ExtResource( 1 )]
+position = Vector2( 160, 170 )
+max_hp = 3
+
+[node name="Block5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 416, 270 )
+max_hp = 4
+hp_colors = [ Color( 0.890625, 0.0730591, 0.0730591, 1 ), Color( 0.538493, 0.632812, 0.0840454, 1 ), Color( 0.127473, 0.742188, 0.0579834, 1 ), Color( 0.0444946, 0.949219, 0.609947, 1 ), Color( 0.0745239, 0.212227, 0.578125, 1 ) ]
+
+[node name="Block14" parent="." instance=ExtResource( 1 )]
+position = Vector2( 288, 210 )
+max_hp = 3
+
+[node name="Block23" parent="." instance=ExtResource( 1 )]
+position = Vector2( 544, 210 )
+max_hp = 3
+
+[node name="Block28" parent="." instance=ExtResource( 1 )]
+position = Vector2( 672, 150 )
+max_hp = 3
+
+[node name="Block33" parent="." instance=ExtResource( 1 )]
+position = Vector2( 160, 150 )
+max_hp = 3
+
+[node name="Block6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 416, 250 )
+max_hp = 4
+hp_colors = [ Color( 0.890625, 0.0730591, 0.0730591, 1 ), Color( 0.538493, 0.632812, 0.0840454, 1 ), Color( 0.127473, 0.742188, 0.0579834, 1 ), Color( 0.0444946, 0.949219, 0.609947, 1 ), Color( 0.0745239, 0.212227, 0.578125, 1 ) ]
+
+[node name="Block9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 288, 190 )
+max_hp = 3
+
+[node name="Block17" parent="." instance=ExtResource( 1 )]
+position = Vector2( 544, 190 )
+max_hp = 3
+
+[node name="Block29" parent="." instance=ExtResource( 1 )]
+position = Vector2( 672, 130 )
+max_hp = 3
+
+[node name="Block35" parent="." instance=ExtResource( 1 )]
+position = Vector2( 160, 130 )
+max_hp = 3
+
+[node name="Block7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 416, 230 )
+max_hp = 4
+hp_colors = [ Color( 0.890625, 0.0730591, 0.0730591, 1 ), Color( 0.538493, 0.632812, 0.0840454, 1 ), Color( 0.127473, 0.742188, 0.0579834, 1 ), Color( 0.0444946, 0.949219, 0.609947, 1 ), Color( 0.0745239, 0.212227, 0.578125, 1 ) ]
+
+[node name="Block12" parent="." instance=ExtResource( 1 )]
+position = Vector2( 288, 170 )
+max_hp = 3
+
+[node name="Block19" parent="." instance=ExtResource( 1 )]
+position = Vector2( 544, 170 )
+max_hp = 3
+
+[node name="Block31" parent="." instance=ExtResource( 1 )]
+position = Vector2( 672, 110 )
+max_hp = 3
+
+[node name="Block36" parent="." instance=ExtResource( 1 )]
+position = Vector2( 160, 110 )
+max_hp = 3
+
+[node name="Block8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 416, 210 )
+max_hp = 4
+hp_colors = [ Color( 0.890625, 0.0730591, 0.0730591, 1 ), Color( 0.538493, 0.632812, 0.0840454, 1 ), Color( 0.127473, 0.742188, 0.0579834, 1 ), Color( 0.0444946, 0.949219, 0.609947, 1 ), Color( 0.0745239, 0.212227, 0.578125, 1 ) ]
+
+[node name="Block16" parent="." instance=ExtResource( 1 )]
+position = Vector2( 288, 150 )
+max_hp = 3
+
+[node name="Block22" parent="." instance=ExtResource( 1 )]
+position = Vector2( 544, 150 )
+max_hp = 3
+
+[node name="Block32" parent="." instance=ExtResource( 1 )]
+position = Vector2( 672, 90 )
+max_hp = 3
+
+[node name="Block38" parent="." instance=ExtResource( 1 )]
+position = Vector2( 160, 90 )
+max_hp = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("..")
+autoplay = "Loop"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Loop = SubResource( 1 )
+anims/SETUP = SubResource( 2 )
+blend_times = [  ]
+

@@ -1,18 +1,33 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Breakout/Game.gd" type="Script" id=1]
-[ext_resource path="res://Breakout/Blocks/Block.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Breakout/Patterns/Block_Pattern.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Breakout/Balls/Ball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Breakout/Paddles/Player/Player.tscn" type="PackedScene" id=4]
+
+[sub_resource type="PhysicsMaterial" id=1]
+
+friction = 1.0
+rough = false
+bounce = 0.0
+absorbent = false
+
+[sub_resource type="PhysicsMaterial" id=2]
+
+friction = 1.0
+rough = false
+bounce = 0.0
+absorbent = false
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 542.0, 150.0, 170.0, 190.0, 210.0, 230.0, 250.0, 270.0, 170.0 ],
-"_edit_vertical_guides_": [ 736.0 ]
+"_edit_horizontal_guides_": [ 542.0, 18.0, 2.0, -2.0, 22.0, 38.0, 42.0, 58.0, 62.0, 58.0, 58.0, 78.0, 82.0, 98.0, 102.0, 118.0, 122.0, 138.0, 158.0, 142.0, 178.0, 162.0, 182.0, 198.0, 202.0, 218.0, 222.0, 238.0, 242.0, 258.0, 262.0, 278.0, 282.0, 298.0, 302.0, 318.0, 322.0, 338.0, 342.0 ],
+"_edit_vertical_guides_": [ 446.0, -2.0, 126.0, 130.0, 194.0, 254.0, 322.0, 382.0, 386.0, 318.0, 258.0, 190.0, 66.0, 62.0, 2.0, 450.0, 510.0, 514.0, 574.0, 578.0, 638.0, 642.0, 702.0, 706.0, 766.0, 770.0, 830.0, 834.0, 830.0, 830.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 770.0, 416.0 ]
 }
 
 [node name="World" type="StaticBody2D" parent="."]
+editor/display_folded = true
 input_pickable = false
 collision_layer = 524288
 collision_mask = 1
@@ -20,18 +35,18 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-physics_material_override = null
+physics_material_override = SubResource( 1 )
 _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World"]
 build_mode = 0
-polygon = PoolVector2Array( 0, 0, -10, -10, 810, -10, 800, 0 )
+polygon = PoolVector2Array( 0, 0, -10, -10, 842, -10, 832, 0 )
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="World"]
 position = Vector2( 800, 600 )
 rotation = 3.14159
 build_mode = 0
-polygon = PoolVector2Array( 0, 0, -10, -10, 810, -10, 800, 0 )
+polygon = PoolVector2Array( -32, -0.00012207, -42, -10.0001, 810, -10, 800, 0 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="World"]
 position = Vector2( 0, 800 )
@@ -40,7 +55,7 @@ build_mode = 0
 polygon = PoolVector2Array( 200, -0.000444253, 190, -10.0004, 810, -10, 800, 0 )
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="World"]
-position = Vector2( 800, -200 )
+position = Vector2( 832, -200 )
 rotation = 1.57079
 build_mode = 0
 polygon = PoolVector2Array( 200, -0.000444253, 190, -10.0004, 810, -10, 800, 0 )
@@ -54,16 +69,17 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-physics_material_override = null
+physics_material_override = SubResource( 2 )
 _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Ground"]
 modulate = Color( 0.0705882, 0.576471, 0.352941, 1 )
 build_mode = 0
-polygon = PoolVector2Array( 0, 542, 800, 542, 800, 564, 0, 564 )
+polygon = PoolVector2Array( 0, 542, 832, 542, 832, 564, 0, 564 )
 _sections_unfolded = [ "Material", "Visibility" ]
 
 [node name="DeathZone" type="Area2D" parent="World"]
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -74,309 +90,21 @@ audio_bus_name = "Master"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/DeathZone"]
 build_mode = 0
-polygon = PoolVector2Array( 0, 540, 0, 600, 800, 600, 800, 540 )
+polygon = PoolVector2Array( 0, 540, 0, 600, 832, 600, 832, 540 )
 
-[node name="Block_Pattern" type="Node" parent="."]
-editor/display_folded = true
-
-[node name="Block" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 54, 140 )
-
-[node name="Block21" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 54, 158 )
-
-[node name="Block31" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 54, 122 )
-
-[node name="Block47" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 54, 102 )
-
-[node name="Block55" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 54, 82 )
-
-[node name="Block63" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 54.8145, 62 )
-
-[node name="Block81" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 54.8145, 42 )
-
-[node name="Block87" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 54.8145, 22 )
-
-[node name="Block6" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 246, 140 )
-
-[node name="Block15" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 246, 158 )
-
-[node name="Block32" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 246, 122 )
-
-[node name="Block44" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 246, 102 )
-
-[node name="Block58" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 246, 82 )
-
-[node name="Block67" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 246.814, 62 )
-
-[node name="Block80" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 246.814, 42 )
-
-[node name="Block86" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 246.814, 22 )
-
-[node name="Block8" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 438, 140 )
-
-[node name="Block22" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 438, 158 )
-
-[node name="Block36" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 438, 122 )
-
-[node name="Block46" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 438, 102 )
-
-[node name="Block57" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 438, 82 )
-
-[node name="Block62" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 438.814, 62 )
-
-[node name="Block74" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 438.814, 42 )
-
-[node name="Block91" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 438.814, 22 )
-
-[node name="Block11" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 630, 140 )
-
-[node name="Block16" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 630, 158 )
-
-[node name="Block35" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 630, 122 )
-
-[node name="Block42" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 630, 102 )
-
-[node name="Block53" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 630, 82 )
-
-[node name="Block71" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 630.814, 62 )
-
-[node name="Block79" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 630.814, 42 )
-
-[node name="Block90" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 630.814, 22 )
-
-[node name="Block2" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 118, 140 )
-
-[node name="Block19" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 118, 158 )
-
-[node name="Block29" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 118, 122 )
-
-[node name="Block41" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 118, 102 )
-
-[node name="Block50" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 118, 82 )
-
-[node name="Block70" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 118.814, 62 )
-
-[node name="Block75" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 118.814, 42 )
-
-[node name="Block92" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 118.814, 22 )
-
-[node name="Block5" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 310, 140 )
-
-[node name="Block14" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 310, 158 )
-
-[node name="Block34" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 310, 122 )
-
-[node name="Block45" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 310, 102 )
-
-[node name="Block59" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 310, 82 )
-
-[node name="Block65" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 310.814, 62 )
-
-[node name="Block84" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 310.814, 42 )
-
-[node name="Block96" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 310.814, 22 )
-
-[node name="Block7" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 502, 140 )
-
-[node name="Block20" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 502, 158 )
-
-[node name="Block25" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 502, 122 )
-
-[node name="Block40" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 502, 102 )
-
-[node name="Block56" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 502, 82 )
-
-[node name="Block61" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 502.814, 62 )
-
-[node name="Block78" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 502.814, 42 )
-
-[node name="Block89" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 502.814, 22 )
-
-[node name="Block10" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 694, 140 )
-
-[node name="Block18" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 694, 158 )
-
-[node name="Block27" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 694, 122 )
-
-[node name="Block38" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 694, 102 )
-
-[node name="Block60" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 694, 82 )
-
-[node name="Block68" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 694.814, 62 )
-
-[node name="Block76" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 694.814, 42 )
-
-[node name="Block93" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 694.814, 22 )
-
-[node name="Block3" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 182, 140 )
-
-[node name="Block13" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 182, 158 )
-
-[node name="Block26" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 182, 122 )
-
-[node name="Block43" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 182, 102 )
-
-[node name="Block49" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 182, 82 )
-
-[node name="Block69" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 182.814, 62 )
-
-[node name="Block77" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 182.814, 42 )
-
-[node name="Block88" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 182.814, 22 )
-
-[node name="Block4" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 374, 140 )
-
-[node name="Block17" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 374, 158 )
-
-[node name="Block33" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 374, 122 )
-
-[node name="Block37" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 374, 102 )
-
-[node name="Block51" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 374, 82 )
-
-[node name="Block64" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 374.814, 62 )
-
-[node name="Block82" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 374.814, 42 )
-
-[node name="Block94" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 374.814, 22 )
-
-[node name="Block9" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 566, 140 )
-
-[node name="Block23" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 566, 158 )
-
-[node name="Block30" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 566, 122 )
-
-[node name="Block39" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 566, 102 )
-
-[node name="Block54" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 566, 82 )
-
-[node name="Block66" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 566.814, 62 )
-
-[node name="Block83" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 566.814, 42 )
-
-[node name="Block95" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 566.814, 22 )
-
-[node name="Block12" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 758, 140 )
-
-[node name="Block24" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 758, 158 )
-
-[node name="Block28" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 758, 122 )
-
-[node name="Block48" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 758, 102 )
-
-[node name="Block52" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 758, 82 )
-
-[node name="Block72" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 758.814, 62 )
-
-[node name="Block73" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 758.814, 42 )
-
-[node name="Block85" parent="Block_Pattern" instance=ExtResource( 2 )]
-position = Vector2( 758.814, 22 )
+[node name="Block_Pattern" parent="." instance=ExtResource( 2 )]
 
 [node name="Ball" parent="." groups=[
 "Ball",
 ] instance=ExtResource( 3 )]
-position = Vector2( 400, 212 )
+editor/display_folded = true
+position = Vector2( 72, 382 )
 collision_layer = 524289
-_sections_unfolded = [ "Collision", "Linear", "Motion", "Pickable", "physics_material_override" ]
-speed = 400
+_sections_unfolded = [ "Collision", "Linear", "Motion", "Pickable", "Transform", "physics_material_override" ]
+speed = 250
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 406, 522 )
+position = Vector2( 72, 522 )
 _sections_unfolded = [ "Collision", "Motion", "Pickable", "Transform", "Visibility" ]
 
 [connection signal="body_entered" from="World/DeathZone" to="." method="_on_Death_body_entered"]

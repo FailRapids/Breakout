@@ -1,60 +1,41 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Breakout/Blocks/Block.gd" type="Script" id=1]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 12.0
-height = 52.0
+radius = 7.99992
+height = 44.0002
 
-[sub_resource type="CapsuleShape2D" id=2]
-
-custom_solver_bias = 0.0
-radius = 10.0
-height = 48.0
-
-[node name="Block" type="Area2D"]
-position = Vector2( 194, 94 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
+[node name="Block" type="StaticBody2D" groups=[
+"Blocks",
+]]
+input_pickable = false
 collision_layer = 0
 collision_mask = 524289
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "hp_colors" ]
-max_hp = 2
-hp_colors = [ Color( 0.890625, 0.0730591, 0.0730591, 1 ), Color( 0.538493, 0.632812, 0.0840454, 1 ), Color( 0.127473, 0.742188, 0.0579834, 1 ) ]
-
-[node name="CollisionShape" type="CollisionShape2D" parent="."]
-rotation = -1.5708
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Body" type="StaticBody2D" parent="."]
-input_pickable = false
-collision_layer = 524288
-collision_mask = 524288
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 physics_material_override = null
-_sections_unfolded = [ "Collision" ]
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Transform", "hp_colors" ]
+__meta__ = {
+"_edit_horizontal_guides_": [ -8.0, -8.0, 8.0 ],
+"_edit_vertical_guides_": [ -32.0, 32.0 ]
+}
+max_hp = 2
+hp_colors = [ Color( 0.890625, 0.0730591, 0.0730591, 1 ), Color( 0.538493, 0.632812, 0.0840454, 1 ), Color( 0.127473, 0.742188, 0.0579834, 1 ) ]
 
-[node name="CollisionShape" type="CollisionShape2D" parent="Body"]
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 z_index = 1
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="BodyShape" type="Polygon2D" parent="Body"]
-editor/display_folded = true
-polygon = PoolVector2Array( -32, -10, -32, 10, 32, 10, 32, -10 )
+[node name="BodyShape" type="Polygon2D" parent="."]
+polygon = PoolVector2Array( -30, -8, -30, 8, 30, 8, 30, -8 )
 uv = PoolVector2Array(  )
 splits = PoolIntArray(  )
 color = Color( 1, 1, 1, 1 )
@@ -70,8 +51,9 @@ invert_enable = false
 invert_border = 100.0
 bones = [  ]
 
-[node name="BorderTop" type="Polygon2D" parent="Body/BodyShape"]
-polygon = PoolVector2Array( -32, -10, -30, -8, 30, -8, 32, -10 )
+[node name="BorderTop" type="Polygon2D" parent="BodyShape"]
+position = Vector2( 0, 2 )
+polygon = PoolVector2Array( -30, -10, -28, -8, 28, -8, 30, -10 )
 uv = PoolVector2Array(  )
 splits = PoolIntArray(  )
 color = Color( 0, 0, 0, 1 )
@@ -87,9 +69,10 @@ invert_enable = false
 invert_border = 100.0
 bones = [  ]
 
-[node name="BorderBottom" type="Polygon2D" parent="Body/BodyShape"]
+[node name="BorderBottom" type="Polygon2D" parent="BodyShape"]
+position = Vector2( 0, -2 )
 rotation = -3.14159
-polygon = PoolVector2Array( -32, -10, -30, -8, 30, -8, 32, -10 )
+polygon = PoolVector2Array( -30, -9.99992, -28, -7.99992, 28, -8.00007, 30, -10.0001 )
 uv = PoolVector2Array(  )
 splits = PoolIntArray(  )
 color = Color( 0, 0, 0, 1 )
@@ -105,8 +88,9 @@ invert_enable = false
 invert_border = 100.0
 bones = [  ]
 
-[node name="BorderRight" type="Polygon2D" parent="Body/BodyShape"]
-polygon = PoolVector2Array( 32, -10, 30, -8, 30, 8, 32, 10 )
+[node name="BorderRight" type="Polygon2D" parent="BodyShape"]
+position = Vector2( -2, 0 )
+polygon = PoolVector2Array( 32, -8, 30, -6, 30, 6, 32, 8 )
 uv = PoolVector2Array(  )
 splits = PoolIntArray(  )
 color = Color( 0, 0, 0, 1 )
@@ -122,8 +106,9 @@ invert_enable = false
 invert_border = 100.0
 bones = [  ]
 
-[node name="BorderLeft" type="Polygon2D" parent="Body/BodyShape"]
-polygon = PoolVector2Array( -32, -10, -30, -8, -30, 8, -32, 10 )
+[node name="BorderLeft" type="Polygon2D" parent="BodyShape"]
+position = Vector2( 2, 0 )
+polygon = PoolVector2Array( -32, -8, -30, -6, -30, 6, -32, 8 )
 uv = PoolVector2Array(  )
 splits = PoolIntArray(  )
 color = Color( 0, 0, 0, 1 )
@@ -139,4 +124,3 @@ invert_enable = false
 invert_border = 100.0
 bones = [  ]
 
-[connection signal="body_entered" from="." to="." method="_on_Block_body_entered"]
